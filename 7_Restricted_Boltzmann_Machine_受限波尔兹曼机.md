@@ -363,7 +363,7 @@ class RBM(object):
 ```
 注意`get_cost_update`作为参数被变量化为`persistent`。这允许我们去使用相同的代码来实现CD和PCD。为了使用PCD，`persistent`需要被关联到一个共享变量，它包含前一次迭代的Gibbs链的状态。
 
-假如`persistent`为`None`，则我们使用正相位时产生的隐藏样本来初始化Gibbs链，以此实现CD。当我们已经建立了这个链的开始点的时候，我们就可以计算这个Gibbs链的终点的样本，以及我们需要的去获得梯度的样本。为了获得这些，我们使用Theano提供的`sacn`操作，我们建议读者去阅读这个[链接](http://deeplearning.net/software/theano/library/scan.html)。
+假如`persistent`为`None`，则我们使用正相位时产生的隐藏样本来初始化Gibbs链，以此实现CD。当我们已经建立了这个链的开始点的时候，我们就可以计算这个Gibbs链的终点的样本，以及我们需要的去获得梯度的样本。为了获得这些，我们使用Theano提供的`scan`操作，我们建议读者去阅读这个[链接](http://deeplearning.net/software/theano/library/scan.html)。
 
 ```Python
         # perform actual negative phase
